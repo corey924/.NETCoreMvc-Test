@@ -1,0 +1,62 @@
+﻿@{
+  Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>DotNetCoreMvc</title>
+  <environment include="Development">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+  </environment>
+  <environment exclude="Development">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+          asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute"
+          crossorigin="anonymous"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" />
+  </environment>
+  <link href="~/css/login/login-base.min.css" rel="stylesheet" />
+</head>
+<body>
+  <div class="container">
+    <form class="form-signin" method="post">
+      @if (ViewData.ModelState.ErrorCount > 0)
+      {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+          @Html.ValidationSummary(true)
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+        </div>
+      }
+      <div class="form-label-group">
+        <input type="text" name="account" class="form-control" placeholder="Account" required autofocus>
+        <label for="account">Account</label>
+      </div>
+      <div class="form-label-group">
+        <input type="password" name="password" class="form-control" placeholder="Password" required>
+        <label for="password">Password</label>
+      </div>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+      <p class="mt-5 mb-3 text-muted text-center">&copy; @DateTime.Now.Year DotNetCoreMvc</p>
+    </form>
+  </div>
+  <environment include="Development">
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
+  </environment>
+  <environment exclude="Development">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
+            asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+            asp-fallback-test="window.jQuery"
+            crossorigin="anonymous"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"
+            asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"
+            asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+            crossorigin="anonymous"
+            integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o">
+    </script>
+  </environment>
+</body>
+</html>
